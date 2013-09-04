@@ -1,0 +1,26 @@
+UPDATE Amyali_emiles_temp
+SET     title = B.title
+FROM Amyali_emiles_temp A, Amyali_emiles_titlelist_temp B
+WHERE 
+A.account_number = B.account_number
+and A.customer_id = B.customer_id;
+
+OR
+
+update t1 
+from tmp_top_members_new t1, 
+(select flyer_id,sum(points)as total_points into tmp  from activity_2007
+where CLASS_CODE in ('F','A','R','J','C','D')
+and region_id in(6,12) 
+group by flyer_id) t1
+set = t2.total_points
+where t1.id = t2.flyer_id
+
+
+===================================
+
+update 	tmp_top_members
+set	tmp_top_members.points_2006	= 
+(select sum(POINTS) from Activity_2006 t2 where t2.FLYER_ID = t1.id 
+--group by t2.FLYER_ID
+)

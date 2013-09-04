@@ -1,0 +1,5 @@
+Alter Table Tbl_Txn_Line_CHS add AutoNum Numeric(5,0) identity;
+
+OR
+
+Alter Table tmp_trnx_decile add AutoNum int identity;

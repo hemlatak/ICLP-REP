@@ -1,0 +1,5 @@
+take new query for corresponding db.then execute the below query.
+
+SELECT name 
+FROM dbo.sysobjects 
+WHERE xtype = 'U' 
