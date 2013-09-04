@@ -1,0 +1,73 @@
+use tls_dhl;
+
+Refer document D:\NISHA\DHL\Extracts\DHL-250 Altitude Lapsed Extract_29.05.11\SQLQuery.SQL
+
+select statement_date,last_stmt_month,f1
+from tmp_dhl250_altlapsed;
+
+select statement_date,
+datename(month,month(statement_date)-1)
+ from tmp_dhl250_altlapsed;
+
+select statement_date,month(statement_date)-1
+ from tmp_dhl250_altlapsed;
+
+select statement_date,
+case when(month(statement_date)=1) then 
+left(datename(month,DATEADD(mm, -1, statement_date)),3)++'-'+cast(year(statement_date)-1 as varchar(25))
+else
+left(datename(month,DATEADD(mm, -1, statement_date)),3)++'-'+cast(year(statement_date) as varchar(25))
+end
+ from tmp_dhl250_altlapsed;
+
+-----------------------------------------------------
+
+Monday, June 4, 2007
+SQL DATEADD Function 
+Returns a new datetime value based on adding an interval to the specified date.
+
+SQL DATEADD Syntax
+DATEADD ( datepart , number, date )
+
+
+DECLARE @DateNow DATETIME
+SET @DateNow='2007-06-04'
+SELECT DATEADD(Year, 3, @DateNow) AS NewDate 
+Return Value = 2010-06-04 00:00:00.000
+
+
+SELECT DATEADD(quarter, 3, @DateNow) AS NewDate
+Return Value = 2008-03-04 00:00:00.000
+
+
+SELECT DATEADD(Month, 3, @DateNow) AS NewDate
+Return Value = 2007-09-04 00:00:00.000
+
+
+SELECT DATEADD(dayofyear,3, @DateNow) AS NewDate
+Return Value = 2007-06-07 00:00:00.000
+
+
+SELECT DATEADD(Day, 3, @DateNow) AS NewDate
+Return Value = 2007-06-07 00:00:00.000
+
+
+SELECT DATEADD(Week, 3, @DateNow) AS NewDate
+Return Value = 2007-06-25 00:00:00.000
+
+
+SELECT DATEADD(Hour, 3, @DateNow) AS NewDate
+Return Value = 2007-06-04 03:00:00.000
+
+
+SELECT DATEADD(minute, 3, @DateNow) AS NewDate
+Return Value = 2007-06-04 00:03:00.000
+
+
+SELECT DATEADD(second, 3, @DateNow) AS NewDate
+Return Value = 2007-06-04 00:00:03.000
+
+
+SELECT DATEADD(millisecond, 3, @DateNow) AS NewDate
+Return Value = 2007-06-04 00:00:00.003
+

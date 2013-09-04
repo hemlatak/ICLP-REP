@@ -1,0 +1,55 @@
+
+
+--SELECT name into workarea.[dbo].tmp_dhl_test_2912_main
+--FROM dbo.sysobjects 
+--WHERE xtype = 'U' ;
+
+
+SELECT name 
+FROM dbo.sysobjects 
+WHERE xtype = 'U' ;
+
+
+select * from altitude_chalenges_lanes_2008;
+select count(*) from altitude_chalenges_lanes_2008;
+
+SELECT * INTO dhl.[dbo].altitude_chalenges_lanes_2008   FROM altitude_chalenges_lanes_2008
+
+
+select * from altitude_heavyweight_segment1_2008;
+select count(*) from altitude_heavyweight_segment1_2008;
+
+SELECT * INTO dhl.[dbo].altitude_heavyweight_segment1_2008   FROM altitude_heavyweight_segment1_2008
+
+
+
+
+--19 tables
+
+
+altitude_heavyweight_segment1_2008
+altitude_heavyweight_segment2_2008
+altitude_member_chalenges_2008
+altitude_member_chalenges_2008_log
+altitude_member_chalenges_2008_reminder_1
+Altitude_Reactivation_Campaign_nov09_web
+dbo_altitude_member_chalenges_reminder2_may08
+dhl_3months_july
+dhl_exract_apr10
+DHL_Imports_target_list
+DHL_Remainder_Imports_target_list
+mem_sales_161003
+member_statement_history_20101110
+member_statement_history_tmp
+tls_Firstime_Shippers_1461
+tls_lost_lapsed_member_841
+tls_regularShippers_5215
+tmp_e_bonus
+
+
+
+
+
+
+
+

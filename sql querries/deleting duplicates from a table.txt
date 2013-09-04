@@ -1,0 +1,13 @@
+DELETE
+FROM Amyali_emiles_temp1
+WHERE auto_no NOT IN
+(
+SELECT MAX(auto_no)
+FROM Amyali_emiles_temp1
+GROUP BY  account_number,customer_id,full_name,email,mobile )
+
+OR
+
+DELETE c1 from sv_analysis.dbo.card_history c1 where exists (select 1 from Card_history_20110117 c2
+where c1.current_id = c2.current_id and c1.current_type = c2.current_type and c1.op_date = c2.op_date
+and c1.from_id = c2.from_id and c1.from_type = c2.from_type );

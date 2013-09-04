@@ -1,0 +1,16 @@
+
+--For all records with duplicate account_number and customer_id
+
+select A.* from tmp_mbr_matchng_records A
+where exists
+(select 1 from tmp_mbr_matchng_records t1
+where POINTS_DATE_UPDATED
+in(select min(POINTS_DATE_UPDATED) from tmp_mbr_matchng_records t2
+where t1.account_number = t2.account_number
+and t1.customer_id=t2.customer_id))
+
+--From the above table,for displaying all fields for distinct acct_no & cust id only
+
+select * from tmp_mbr_matchng_records t1 
+where POINTS_DATE_UPDATED in (select min(POINTS_DATE_UPDATED) from tmp_mbr_matchng_records t2
+where t2.account_number = t1.account_number and t2.customer_id = t1.customer_id);
