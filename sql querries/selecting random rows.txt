@@ -1,5 +1,0 @@
-
-
-select top 500 * from NCB_CMS_CUSTOMER_NCB_POINTS
-order by newid()
-

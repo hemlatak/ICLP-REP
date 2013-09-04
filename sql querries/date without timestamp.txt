@@ -1,1 +1,0 @@
-select (cast(floor(cast(getdate() as float)) as datetime)),getdate()

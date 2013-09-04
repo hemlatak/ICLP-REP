@@ -1,9 +1,0 @@
-
-
-SELECT * INTO tls_dhl.[dbo].tmp_transaction_raw_data   FROM tmp_transaction_raw_data
-
---37024 rows inserted
-
-select count(*) from tmp_transaction_raw_data;
-
---37024

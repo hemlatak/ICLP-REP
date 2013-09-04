@@ -1,8 +1,0 @@
- select o.*
-from ncb_cms_customer o 
-inner join ( 
-   select account_number,customer_id,count(*)as count from ncb_cms_customer
-group by account_number,customeR_id
-having count(*)>1
-) oc on o.account_number = oc.account_number 
-and  o.customer_id = oc.customer_id 
