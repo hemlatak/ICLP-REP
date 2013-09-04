@@ -1,0 +1,15 @@
+create table ncb_live_test.dbo.tmp_members_miles
+(account_number nvarchar(10),
+customer_id nvarchar(15),
+activity_date datetime,
+points decimal(18,0),
+partner_id int,
+type nvarchar(10));
+
+insert into ncb_live_test.dbo.tmp_members_miles
+select account_number, customer_id, activity_date ,points_accumulated as points, null, 'NCB' transtype from NCB_CMS_CUSTOMER_NCB_POINTS 
+union
+select account_number, customer_id, activity_date ,points, null, 'MISC' transtype from NCB_CMS_CUSTOMER_MISC_POINTS where POINTS_AWARD_TYPE<>'R'
+union
+select account_number, customer_id, activity_date ,POINTS_REDEEMED as points, partner_id, 'REDEEMED' transtype from NCB_CMS_CUSTOMER_POINTS_REDEEMED where reverse_redemption = 'N'
+order by account_number, customer_id;
